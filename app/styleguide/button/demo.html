@@ -13,83 +13,48 @@
   </head>
   <body>
 
-  <h2>.paper-button</h2>
+  <div class="PreviewBlock">
 
-  <div class="preview-block">
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab">♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon">♥</button></div>
 
-    <button class="paper-button">Button</button>
+    <h2>With Ripples</h2>
 
-    <button class="paper-button shadow-z1">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect">♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect">♥</button></div>
 
-    <button class="paper-button shadow-z2">Button</button>
+    <h2>.wsk-button--colored</h2>
 
-    <button class="paper-button shadow-z3">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored">♥</button></div>
 
-    <button class="paper-button shadow-z4">Button</button>
+    <h2>With Ripples</h2>
 
-    <button class="paper-button shadow-z5">Button</button>
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-button--colored wsk-js-ripple-effect">Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-button--colored wsk-js-ripple-effect">Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-js-ripple-effect">♥</button></div>
 
+    <h2>.wsk-button--mini-fab</h2>
+
+    <div class="button-block"><button class="wsk-button wsk-js-button wsk-button--fab wsk-button--colored wsk-button--mini-fab wsk-js-ripple-effect">♥</button></div>
+
+    <h2>Disabled</h2>
+
+    <div class="button-block">Flat: <button class="wsk-button wsk-js-button wsk-js-ripple-effect" disabled>Flat</button></div>
+    <div class="button-block">Raised: <button class="wsk-button wsk-js-button wsk-button--raised wsk-js-ripple-effect" disabled>Raised</button></div>
+    <div class="button-block">FAB: <button class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect" disabled>♥</button></div>
+    <div class="button-block">Icon: <button class="wsk-button wsk-js-button wsk-button--icon wsk-js-ripple-effect" disabled>♥</button></div>
   </div>
-
-
-
-  <h2>With Ripples</h2>
-
-  <div class="preview-block">
-
-    <button class="paper-button">Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z1">Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z2">Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z3">Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z4">Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z5">Button<div class="ripple"></div></button>
-
-  </div>
-
-
- <h2>.paper-button .colored</h2>
-
-  <div class="preview-block">
-
-    <button class="paper-button colored">Button<div class="ripple"></div></button>
-
-    <button class="paper-button colored shadow-z1">Button<div class="ripple"></div></button>
-
-    <button class="paper-button colored shadow-z2">Button<div class="ripple"></div></button>
-
-    <button class="paper-button colored shadow-z3">Button<div class="ripple"></div></button>
-
-    <button class="paper-button colored shadow-z4">Button<div class="ripple"></div></button>
-
-    <button class="paper-button colored shadow-z5">Button<div class="ripple"></div></button>
-
-  </div>
-
-
-  <h2>Disabled</h2>
-
-  <div class="preview-block">
-
-   <button class="paper-button" disabled>Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z1" disabled>Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z2" disabled>Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z3"  disabled>Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z4"  disabled>Button<div class="ripple"></div></button>
-
-    <button class="paper-button shadow-z5"  disabled>Button<div class="ripple"></div></button>
-
-  </div>
-
+    <!-- build:js(app/styleguide/button/) ../../scripts/main.min.js -->
+    <script src="../wskComponentHandler.js"></script>
     <script src="button.js"></script>
+    <script src="../ripple/ripple.js"></script>
     <script src="../third_party/rAF.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

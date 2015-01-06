@@ -1,68 +1,94 @@
-(function() {
-  window.addEventListener('load', function() {
-    'use strict';
+/**
+ * Class constructor for Button WSK component.
+ * Implements WSK component design pattern defined at:
+ * https://github.com/jasonmayes/wsk-component-design-pattern
+ * @param {HTMLElement} element The element that will be upgraded.
+ */
+function MaterialButton(element) {
+  'use strict';
 
-    var buttons = document.querySelectorAll('.paper-button');
-    var button, bound, x, y, ripple, size, transformString;
-    var frameCount = 0;
+  this.element_ = element;
 
-    for (var b = 0; b < buttons.length; b++) {
-      button = buttons[b];
-      bound = button.getBoundingClientRect();
-      ripple = button.querySelector('.ripple');
-      size = Math.max(bound.width, bound.height) * 2;
+  // Initialize instance.
+  this.init();
+}
 
-      if (ripple !== null) {
-        ripple.style.width = size + 'px';
-        ripple.style.height = size + 'px';
-      }
+/**
+ * Store constants in one place so they can be updated easily.
+ * @enum {string | number}
+ * @private
+ */
+MaterialButton.prototype.Constant_ = {
+  // None for now.
+};
 
-      button.addEventListener('click', onClick);
+/**
+ * Store strings for class names defined by this component that are used in
+ * JavaScript. This allows us to simply change it in one place should we
+ * decide to modify at a later date.
+ * @enum {string}
+ * @private
+ */
+MaterialButton.prototype.CssClasses_ = {
+  /**
+   * Class names should use camelCase and be prefixed with the word "material"
+   * to minimize conflict with 3rd party systems.
+   */
+
+  // TODO: Upgrade classnames in HTML / CSS / JS to use material prefix to
+  // reduce conflict and convert to camelCase for consistency.
+  WSK_JS_RIPPLE_EFFECT: 'wsk-js-ripple-effect',
+
+  WSK_BUTTON_RIPPLE_CONTAINER: 'wsk-button__ripple-container',
+
+  WSK_RIPPLE: 'wsk-ripple'
+};
+
+
+/**
+ * Handle blur of element.
+ * @param {HTMLElement} element The instance of a button we want to blur.
+ * @private
+ */
+MaterialButton.prototype.blurHandlerGenerator_ = function(element) {
+  'use strict';
+
+  return function() {element.blur();};
+};
+
+
+/**
+ * Initialize element.
+ */
+MaterialButton.prototype.init = function() {
+  'use strict';
+
+  if (this.element_) {
+    var blurHandler = this.blurHandlerGenerator_(this.element_);
+    if (this.element_.classList.contains(
+        this.CssClasses_.WSK_JS_RIPPLE_EFFECT)) {
+      var rippleContainer = document.createElement('span');
+      rippleContainer.classList.add(
+          this.CssClasses_.WSK_BUTTON_RIPPLE_CONTAINER);
+      var ripple = document.createElement('span');
+      ripple.classList.add(this.CssClasses_.WSK_RIPPLE);
+      rippleContainer.appendChild(ripple);
+      ripple.addEventListener('mouseup', blurHandler);
+      this.element_.appendChild(rippleContainer);
     }
+    this.element_.addEventListener('mouseup', blurHandler);
+  }
+};
 
-    function onClick(evt) {
 
-      if (frameCount > 0) {
-        return;
-      }
+window.addEventListener('load', function() {
+  'use strict';
 
-      frameCount = 1;
-      bound = evt.currentTarget.getBoundingClientRect();
-      x = Math.round(evt.clientX - bound.left);
-      y = Math.round(evt.clientY - bound.top);
-      transformString = 'translate(-50%, -50%) ' +
-        'translate(' + x + 'px, ' + y + 'px) ' +
-        'scale(0.0001, 0.0001)';
-
-      ripple = evt.currentTarget.querySelector('.ripple');
-
-      if (ripple !== null) {
-        ripple.style.webkitTransform = transformString;
-        ripple.style.transform = transformString;
-        ripple.style.opacity = '0.4';
-        ripple.classList.remove('animate');
-      }
-      requestAnimFrame(reset);
-    }
-
-    function reset() {
-
-      if (frameCount-- > 0) {
-        requestAnimFrame(reset);
-      } else {
-
-        transformString = 'translate(-50%, -50%) ' +
-          'translate(' + x + 'px, ' + y + 'px)' +
-          'scale(1, 1)';
-
-        if (ripple !== null) {
-          ripple.style.webkitTransform = transformString;
-          ripple.style.transform = transformString;
-          ripple.style.opacity = '0';
-          ripple.classList.add('animate');
-        }
-      }
-    }
+  // On document ready, the component registers itself. It can assume
+  // componentHandler is available in the global scope.
+  componentHandler.register({
+    constructor: MaterialButton,
+    classAsString: 'MaterialButton',
+    cssClass: 'wsk-js-button'
   });
-
-})();
+});

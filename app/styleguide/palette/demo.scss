@@ -3,7 +3,7 @@
 @import "../typography/typography";
 
 @mixin colorGroups($palette) {
-  .color-50 {
+  .demo-palette-color--50 {
     background-color: #{nth($palette, 1)};
 
     &:after {
@@ -12,7 +12,7 @@
     }
   }
 
-  .color-100 {
+  .demo-palette-color--100 {
     background-color: #{nth($palette, 2)};
 
     &:after {
@@ -21,7 +21,7 @@
     }
   }
 
-  .color-200 {
+  .demo-palette-color--200 {
     background-color: #{nth($palette, 3)};
 
     &:after {
@@ -30,7 +30,7 @@
     }
   }
 
-  .color-300 {
+  .demo-palette-color--300 {
     background-color: #{nth($palette, 4)};
 
     &:after {
@@ -39,7 +39,7 @@
     }
   }
 
-  .color-400 {
+  .demo-palette-color--400 {
     background-color: #{nth($palette, 5)};
 
     &:after {
@@ -48,7 +48,7 @@
     }
   }
 
-  .color-500 {
+  .demo-palette-color--500 {
     background-color: #{nth($palette, 6)};
 
     &:after {
@@ -57,7 +57,7 @@
     }
   }
 
-  .color-600 {
+  .demo-palette-color--600 {
     background-color: #{nth($palette, 7)};
 
     &:after {
@@ -66,7 +66,7 @@
     }
   }
 
-  .color-700 {
+  .demo-palette-color--700 {
     background-color: #{nth($palette, 8)};
 
     &:after {
@@ -75,7 +75,7 @@
     }
   }
 
-  .color-800 {
+  .demo-palette-color--800 {
     background-color: #{nth($palette, 9)};
 
     &:after {
@@ -84,7 +84,7 @@
     }
   }
 
-  .color-900 {
+  .demo-palette-color--900 {
     background-color: #{nth($palette, 10)};
 
     &:after {
@@ -94,7 +94,7 @@
   }
 
   @if length($palette) > 10 {
-    .color-A100 {
+    .demo-palette-color--A100 {
       background-color: #{nth($palette, 11)};
 
       &:after {
@@ -103,7 +103,7 @@
       }
     }
 
-    .color-A200 {
+    .demo-palette-color--A200 {
       background-color: #{nth($palette, 12)};
 
       &:after {
@@ -112,7 +112,7 @@
       }
     }
 
-    .color-A400 {
+    .demo-palette-color--A400 {
       background-color: #{nth($palette, 13)};
 
       &:after {
@@ -121,7 +121,7 @@
       }
     }
 
-    .color-A700 {
+    .demo-palette-color--A700 {
       background-color: #{nth($palette, 14)};
 
       &:after {
@@ -132,11 +132,17 @@
   }
 }
 
-.palette-group {
-  margin-top: 15px;
+.PreviewBlock {
+  display: inline-block;  
 }
 
-.palette-group div {
+.demo-palette-group {
+  margin-top: 15px;
+  width: 360px;
+  float: left;
+}
+
+.demo-palette-group--color, .demo-palette-group--heading {
   @include typo-caption();
 
   max-width: 300px;
@@ -144,86 +150,86 @@
   color: white;
 }
 
-.palette-group div.dark-text, .heading.dark-text div.palette-name {
+.demo-palette-group .dark-text, .demo-palette-group-heading.dark-text .demo-palette-group-name {
   color: #000;
 }
 
-.palette-group div.palette-name {
+.demo-palette-group--name {
   padding: 0 0 60px 0;
 }
 
-.palette-group-red {
-  @include colorGroups($paletteRed);
+.demo-palette-group__red {
+  @include colorGroups($palette-red);
 }
 
-.palette-group-pink {
-  @include colorGroups($palettePink);
+.demo-palette-group__pink {
+  @include colorGroups($palette-pink);
 }
 
-.palette-group-purple {
-  @include colorGroups($palettePurple);
+.demo-palette-group__purple {
+  @include colorGroups($palette-purple);
 }
 
-.palette-group-deepPurple {
-  @include colorGroups($paletteDeepPurple);
+.demo-palette-group__deep-purple {
+  @include colorGroups($palette-deep-purple);
 }
 
-.palette-group-indigo {
-  @include colorGroups($paletteIndigo);
+.demo-palette-group__indigo {
+  @include colorGroups($palette-indigo);
 }
 
-.palette-group-blue {
-  @include colorGroups($paletteBlue);
+.demo-palette-group__blue {
+  @include colorGroups($palette-blue);
 }
 
-.palette-group-lightBlue {
-  @include colorGroups($paletteLightBlue);
+.demo-palette-group__light-blue {
+  @include colorGroups($palette-light-blue);
 }
 
-.palette-group-cyan {
-  @include colorGroups($paletteCyan);
+.demo-palette-group__cyan {
+  @include colorGroups($palette-cyan);
 }
 
-.palette-group-teal {
-  @include colorGroups($paletteTeal);
+.demo-palette-group__teal {
+  @include colorGroups($palette-teal);
 }
 
-.palette-group-green {
-  @include colorGroups($paletteGreen);
+.demo-palette-group__green {
+  @include colorGroups($palette-green);
 }
 
-.palette-group-lightGreen {
-  @include colorGroups($paletteLightGreen);
+.demo-palette-group__light-green {
+  @include colorGroups($palette-light-green);
 }
 
-.palette-group-lime {
-  @include colorGroups($paletteLime);
+.demo-palette-group__lime {
+  @include colorGroups($palette-lime);
 }
 
-.palette-group-yellow {
-  @include colorGroups($paletteYellow);
+.demo-palette-group__yellow {
+  @include colorGroups($palette-yellow);
 }
 
-.palette-group-amber {
-  @include colorGroups($paletteAmber);
+.demo-palette-group__amber {
+  @include colorGroups($palette-amber);
 }
 
-.palette-group-orange {
-  @include colorGroups($paletteOrange);
+.demo-palette-group__orange {
+  @include colorGroups($palette-orange);
 }
 
-.palette-group-deepOrange {
-  @include colorGroups($paletteDeepOrange);
+.demo-palette-group__deep-orange {
+  @include colorGroups($palette-deep-orange);
 }
 
-.palette-group-brown {
-  @include colorGroups($paletteBrown);
+.demo-palette-group__brown {
+  @include colorGroups($palette-brown);
 }
 
-.palette-group-grey {
-  @include colorGroups($paletteGrey);
+.demo-palette-group__grey {
+  @include colorGroups($palette-grey);
 
-  .color-1000 {
+  .demo-palette-color--1000 {
     background-color: #000000;
 
     &:after {
@@ -232,7 +238,7 @@
     }
   }
 
-  .color-1000-inverse {
+  .demo-palette-color--1000-inverse {
     background-color: #ffffff;
 
     &:after {
@@ -242,6 +248,6 @@
   }
 }
 
-.palette-group-blueGrey {
-  @include colorGroups($paletteBlueGrey);
+.demo-palette-group__blue-grey {
+  @include colorGroups($palette-blue-grey);
 }
